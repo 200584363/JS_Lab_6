@@ -1,0 +1,33 @@
+<!-- Code by Utsav Patel (200584363) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Key Press Tracker</title>
+    <style>
+        /* Center the content on the page */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Key Press Tracker</h1>
+    <p>Press any key on the keyboard!</p>
+    <!-- Display the last key code and key value -->
+    <p>Last Key Code: <span id="keyCode">-</span></p>
+    <p>Last Key Value: <span id="keyValue">-</span></p>
+
+    <script>
+        // Listen for any keydown event on the page
+        document.addEventListener('keydown', (event) => {
+            // Update the displayed key code and key value
+            document.getElementById('keyCode').textContent = event.keyCode;
+            document.getElementById('keyValue').textContent = event.key;
+        });
+    </script>
+</body>
+</html>
