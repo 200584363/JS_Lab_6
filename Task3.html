@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+    <style>
+        /* Center the content on the page */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        /* Form should be aligned in the center */
+        form {
+            display: inline-block;
+        }
+
+        /* Error messages are hidden initially */
+        .error {
+            color: red;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Form Validation</h1>
+    <!-- Form with username and password fields -->
+    <form id="loginForm">
+        <div>
+            <!-- Username input field -->
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            <!-- Error message for invalid username -->
+            <p class="error" id="usernameError">Username must be at least 5 characters long.</p>
+        </div>
+        <div>
+            <!-- Password input field -->
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <!-- Error message for invalid password -->
+            <p class="error" id="passwordError">Password must be at least 8 characters long.</p>
+        </div>
+        <!-- Submit button for the form -->
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        // Get references to form elements
+        const form = document.getElementById('loginForm');
+        const username = document.getElementById('username');
+        const password = document.getElementById('password');
+        const usernameError = document.getElementById('usernameError');
+        const passwordError = document.getElementById('passwordError');
+
+        // Add event listener to validate form on submit
+        form.addEventListener('submit', function(event) {
+            let valid = true;
+
+            // Validate that the username is at least 5 characters long
+            if (username.value.length < 5) {
+                usernameError.style.display = 'block'; // Show error message
+                valid = false; // Set valid to false if condition is not met
+            } else {
+                usernameError.style.display = 'none'; // Hide error message if condition is met
+            }
+
+            // Validate that the password is at least 8 characters long
+            if (password.value.length < 8) {
+                passwordError.style.display = 'block'; // Show error message
+                valid = false; // Set valid to false if condition is not met
+            } else {
+                passwordError.style.display = 'none'; // Hide error message if condition is met
+            }
+
+            // Prevent form submission if any validation failed
+            if (!valid) {
+                event.preventDefault(); // Stop the form from being submitted
+            }
+        });
+    </script>
+</body>
+</html>
