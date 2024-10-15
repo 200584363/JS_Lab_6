@@ -1,0 +1,39 @@
+<!-- Code by Utsav Patel (200584363) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button Counter</title>
+    <style>
+        /* Center the content on the page */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Button Click Counter</h1>
+    <!-- Display the counter value -->
+    <p>Counter: <span id="counter">0</span></p>
+    <!-- Button to increment the counter -->
+    <button id="incrementButton">Click me!</button>
+
+    <script>
+        // Initialize the counter value to 0
+        let count = 0;
+
+        // Get references to the counter display and the button
+        const counterElement = document.getElementById('counter');
+        const button = document.getElementById('incrementButton');
+
+        // Add a click event listener to the button
+        button.addEventListener('click', () => {
+            count++; // Increment the counter
+            counterElement.textContent = count; // Update the displayed counter value
+        });
+    </script>
+</body>
+</html>
